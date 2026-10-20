@@ -2,4 +2,3 @@ Matematicas|Intermedio|150|50
 Informatica|Avanzado|100|25
 Español|Avanzado|250|15
 IA|Master|1000|5
-DataBase|Basico|300|100

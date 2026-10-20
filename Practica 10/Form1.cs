@@ -33,6 +33,8 @@ namespace Practica_10
 
 			lstvwListado.View = View.Details;
 			lstvwListado.GridLines = true;
+			lstvwListado.CheckBoxes = true;
+
 			LeerArchivo();
 		}
 
@@ -60,6 +62,42 @@ namespace Practica_10
 				lstvwListado.Items.Add(item);
 				linea = archivo.ReadLine();
 			}
+			archivo.Close();
+		}
+
+		private void btnEliminar_Click(object sender, EventArgs e)
+		{
+			if (lstvwListado.CheckedIndices.Count == 0)
+			{
+				MessageBox.Show("No hay elementos seleccionados");
+				return;
+			}
+			DialogResult respuesta = MessageBox.Show("Deseas eliminanr los datos?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (respuesta == DialogResult.Yes)
+			{
+				for (int i = lstvwListado.CheckedIndices.Count - 1; i >= 0; i--)
+				{
+					lstvwListado.Items.RemoveAt(lstvwListado.CheckedIndices[i]);
+				}
+				ActualizarArchivo();
+			}
+		}
+
+		private void ActualizarArchivo()
+		{
+			StreamWriter archivo = new StreamWriter(@"..\..\Archivos\cursos.txt");
+			int cantidad = lstvwListado.Items.Count;
+			for(int x = 0; x < cantidad; x++)
+			{
+				string curso = lstvwListado.Items[x].SubItems[0].Text;
+				string categoria = lstvwListado.Items[x].SubItems[1].Text;
+				string costo = lstvwListado.Items[x].SubItems[2].Text;
+				string capacidad = lstvwListado.Items[x].SubItems[3].Text;
+
+				archivo.WriteLine(curso + "|" + categoria + "|" + costo + "|" + capacidad);
+
+			}
+			archivo.Flush();
 			archivo.Close();
 		}
 	}

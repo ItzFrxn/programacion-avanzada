@@ -39,6 +39,7 @@
 			this.txtCapacidad = new System.Windows.Forms.TextBox();
 			this.lstvwListado = new System.Windows.Forms.ListView();
 			this.btnRegistrar = new System.Windows.Forms.Button();
+			this.btnEliminar = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -144,11 +145,23 @@
 			this.btnRegistrar.UseVisualStyleBackColor = true;
 			this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
 			// 
+			// btnEliminar
+			// 
+			this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+			this.btnEliminar.Location = new System.Drawing.Point(116, 347);
+			this.btnEliminar.Name = "btnEliminar";
+			this.btnEliminar.Size = new System.Drawing.Size(137, 39);
+			this.btnEliminar.TabIndex = 12;
+			this.btnEliminar.Text = "ELIMINAR";
+			this.btnEliminar.UseVisualStyleBackColor = true;
+			this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.btnEliminar);
 			this.Controls.Add(this.btnRegistrar);
 			this.Controls.Add(this.lstvwListado);
 			this.Controls.Add(this.txtCapacidad);
@@ -181,6 +194,7 @@
 		private System.Windows.Forms.TextBox txtCapacidad;
 		private System.Windows.Forms.ListView lstvwListado;
 		private System.Windows.Forms.Button btnRegistrar;
+		private System.Windows.Forms.Button btnEliminar;
 	}
 }
 
