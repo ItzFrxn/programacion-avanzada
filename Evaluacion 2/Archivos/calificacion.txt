@@ -1,0 +1,4 @@
+Melchor|Español|9
+Melchor|Matematicas|8
+Melchor|Quimica|9
+Melchor|Fisica|8

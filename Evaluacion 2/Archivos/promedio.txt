@@ -1,0 +1,4 @@
+Español|9
+Matematicas|8
+Quimica|9
+Fisica|8
