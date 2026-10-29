@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -39,6 +40,17 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.btnAgregar = new System.Windows.Forms.Button();
+			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tlpCantAlm = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tlpMateria = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tlpCantMat = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tlpFecha = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tmrFecha = new System.Windows.Forms.Timer(this.components);
+			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -74,6 +86,7 @@
 			this.txtAlumno.Name = "txtAlumno";
 			this.txtAlumno.Size = new System.Drawing.Size(100, 20);
 			this.txtAlumno.TabIndex = 3;
+			this.txtAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloLetras);
 			// 
 			// cboMaterias
 			// 
@@ -89,6 +102,7 @@
 			this.txtCalificacion.Name = "txtCalificacion";
 			this.txtCalificacion.Size = new System.Drawing.Size(100, 20);
 			this.txtCalificacion.TabIndex = 5;
+			this.txtCalificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumeros);
 			// 
 			// lstvwCalificacion
 			// 
@@ -136,11 +150,79 @@
 			this.btnAgregar.UseVisualStyleBackColor = true;
 			this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
 			// 
+			// statusStrip1
+			// 
+			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.tlpCantAlm,
+            this.toolStripStatusLabel2,
+            this.tlpMateria,
+            this.toolStripStatusLabel3,
+            this.tlpCantMat,
+            this.toolStripStatusLabel4,
+            this.tlpFecha});
+			this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+			this.statusStrip1.Name = "statusStrip1";
+			this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+			this.statusStrip1.TabIndex = 11;
+			this.statusStrip1.Text = "statusStrip1";
+			// 
+			// toolStripStatusLabel1
+			// 
+			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(109, 17);
+			this.toolStripStatusLabel1.Text = "Cantidad Alumnos:";
+			// 
+			// tlpCantAlm
+			// 
+			this.tlpCantAlm.Name = "tlpCantAlm";
+			this.tlpCantAlm.Size = new System.Drawing.Size(0, 17);
+			// 
+			// toolStripStatusLabel2
+			// 
+			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+			this.toolStripStatusLabel2.Size = new System.Drawing.Size(97, 17);
+			this.toolStripStatusLabel2.Text = "Materia mas alta:";
+			// 
+			// tlpMateria
+			// 
+			this.tlpMateria.Name = "tlpMateria";
+			this.tlpMateria.Size = new System.Drawing.Size(0, 17);
+			// 
+			// toolStripStatusLabel3
+			// 
+			this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+			this.toolStripStatusLabel3.Size = new System.Drawing.Size(106, 17);
+			this.toolStripStatusLabel3.Text = "Cantidad materias:";
+			// 
+			// tlpCantMat
+			// 
+			this.tlpCantMat.Name = "tlpCantMat";
+			this.tlpCantMat.Size = new System.Drawing.Size(0, 17);
+			// 
+			// toolStripStatusLabel4
+			// 
+			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+			this.toolStripStatusLabel4.Size = new System.Drawing.Size(77, 17);
+			this.toolStripStatusLabel4.Text = "Fecha y hora:";
+			// 
+			// tlpFecha
+			// 
+			this.tlpFecha.Name = "tlpFecha";
+			this.tlpFecha.Size = new System.Drawing.Size(0, 17);
+			// 
+			// tmrFecha
+			// 
+			this.tmrFecha.Enabled = true;
+			this.tmrFecha.Interval = 1000;
+			this.tmrFecha.Tick += new System.EventHandler(this.tmrFecha_Tick);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.btnAgregar);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
@@ -155,6 +237,8 @@
 			this.Name = "Form1";
 			this.Text = "Calificaciones";
 			this.Load += new System.EventHandler(this.Form1_Load);
+			this.statusStrip1.ResumeLayout(false);
+			this.statusStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -173,6 +257,16 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button btnAgregar;
+		private System.Windows.Forms.StatusStrip statusStrip1;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+		private System.Windows.Forms.ToolStripStatusLabel tlpCantAlm;
+		private System.Windows.Forms.ToolStripStatusLabel tlpMateria;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+		private System.Windows.Forms.ToolStripStatusLabel tlpCantMat;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+		private System.Windows.Forms.ToolStripStatusLabel tlpFecha;
+		private System.Windows.Forms.Timer tmrFecha;
 	}
 }
 
